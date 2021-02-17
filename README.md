@@ -64,3 +64,48 @@ NPM Packages:
 # mapDispatchToProps takes ownProps
 
 - same <ItemContainer /> can adjust the state it called for
+
+# Fetch data from API and update to state
+
+NPM Packages:
+- [x] axios
+- [x] redux-thunk
+
+```javascript
+import { createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
+import { rootReducer } from "./rootReducer";
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(logger, thunk))
+);
+
+export default store;
+```
+
+- insert thunk as middleware
+- create a new function (fetchUser()) in userActions.js which returns a function containing dispatch, and fetch api
+  - then subsequently dispatch the appropriate actions for REQUEST, SUCCESS, and FAILURE
+
+```jsx
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUsers } from "../redux/";
+...
+  // call the api
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, []);
+
+  // fet data from state
+  const userdata = useSelector((state) => state.user.users);
+ 
+  // bind useDispatch to "dispatch" variable
+  const dispatch = useDispatch();
+```
+
+- get state in React Component by `useSelector`
+- dispatch `fetchUser()` by `useDispatch`
