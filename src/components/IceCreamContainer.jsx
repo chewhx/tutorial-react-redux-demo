@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { buyCake } from "../redux";
+import { buyIceCream } from "../redux";
 
-const CakeContainer = (props) => {
+const IceCreamContainer = (props) => {
   return (
     <div>
-      <h2>Number of cakes: {props.numOfCakes}</h2>
-      <button onClick={props.buyCake}>Buy cakes</button>
+      <h2>Number of ice-cream: {props.numOfIceCream}</h2>
+      <button onClick={props.buyIceCream}>Buy ice-cream</button>
     </div>
   );
 };
@@ -14,16 +14,16 @@ const CakeContainer = (props) => {
 // access redux state, get redux state as paramters to get properties
 const mapStateToProps = (state) => {
   return {
-    numOfCakes: state.cake.numOfCakes,
+    numOfIceCream: state.iceCream.numOfIceCream,
   };
 };
 
 // get dispatch as paramter, to match actions
 const mapDispatchToProps = (dispatch) => {
   return {
-    buyCake: () => dispatch(buyCake()),
+    buyIceCream: () => dispatch(buyIceCream()),
   };
 };
 
 // connect function from react-redux to combine the state and component
-export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(IceCreamContainer);

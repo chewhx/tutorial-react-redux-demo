@@ -35,3 +35,10 @@ function App() {
 
 - Wrap `<App />` with `<Provider>` with `store.js` as props
 - The application will be able to access all the states in the store.js
+
+# Two methods to manage state
+
+- connectHOC method 
+- useSelector and useDispatch hooks
+
+
