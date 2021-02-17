@@ -41,4 +41,26 @@ function App() {
 - connectHOC method 
 - useSelector and useDispatch hooks
 
+# Middleware 
+NPM Packages:
+- [x] redux-logger
 
+# DevTools
+NPM Packages:
+- [x] redux-devtools-extension
+
+- install Redux DevTools on Chrome
+- install redux-devtools-extension in project
+
+# Using action payload to pass custom inputs
+
+- See `NewCakeContainer.jsx`
+- add number param to `cakeActions.js` and `cakeReducer.js`
+
+# mapToStateProps can receive ownProps
+
+- an <ItemContainer /> take a prop with can be mapped to the state container
+
+# mapDispatchToProps takes ownProps
+
+- same <ItemContainer /> can adjust the state it called for
